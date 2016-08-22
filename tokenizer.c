@@ -20,7 +20,13 @@ int ParseLine( char* srcString, char delimiter, char* tokens[], int maxTokens){
     int tokenCount = 0;
     int length = getLength(srcString);
 
-    if( length <= 0 ) return tokenCount;
+    if( length <= 0 ) {
+        puts("Provided string length is zero");
+        return tokenCount;
+    }
+
+    if(srcString[0] == ' ')
+        srcString += 1;
 
     for(int k = 0; k < length; k++)
         if(srcString[ k ] == delimiter){
